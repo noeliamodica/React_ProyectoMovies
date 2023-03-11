@@ -6,7 +6,7 @@ import MoviesCard from './moviesCard';
 export default function MoviesGrid (){
     
     return(
-        <div className={styles.movieGrid} >
+        <ul className={styles.movieGrid} >
 
         {movies.map((movie) => (
                          <MoviesCard  key={movie.id} movie={movie} />
@@ -15,6 +15,6 @@ export default function MoviesGrid (){
                         }
                         
                 
-        </div>
+        </ul>
     )
 }
