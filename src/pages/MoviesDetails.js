@@ -2,6 +2,7 @@ import { get } from '../utils/httpClient';
 import styles from './MoviesDetails.module.css'
 import { useParams } from 'react-router';
 import { useEffect , useState} from 'react';
+import { Spinner } from '../components/spinner';
 
 export default function MovieDetails(){
 
@@ -20,7 +21,7 @@ export default function MovieDetails(){
     if (isLoading){
         return (
             <div>
-                Loading...
+                <Spinner />
             </div>
         )
     }
