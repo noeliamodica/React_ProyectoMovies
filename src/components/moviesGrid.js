@@ -2,22 +2,30 @@ import styles from './moviesGrid.module.css'
 import MoviesCard from './moviesCard';
 import { useEffect, useState } from 'react';
 import { get } from '../utils/httpClient';
+import { useLocation } from 'react-router';
 
 
+function useQuery (){
+    return new URLSearchParams(useLocation().search);
+}
 
 export default function MoviesGrid (){
 
    const [movies, setMovies]= useState([]);
 
+   const query = useQuery();
+   const search = query.get('search');
+   console.log('search')
    
 
     useEffect( () =>{
-        get("/discover/movie")
+        const searchUrl = search ? "/search/moviequery" + search  : "/discover/movie";
+        get(searchUrl)
         .then(data =>{
             setMovies(data.results);
         })
 
-      }, []);
+      }, [search]);
     
     return(
         <div>
