@@ -6,13 +6,24 @@ import { useEffect , useState} from 'react';
 export default function MovieDetails(){
 
     const{ movieId }= useParams();
+    const [isLoading, setIsLoading] = useState(true);
     const [movie, setMovie]= useState(null);
 
     useEffect( ()=>{
+        setIsLoading(true);
         get ("/movie/" + movieId ).then((data) =>{
+            setIsLoading(false);
             setMovie(data);
         } );
     }, [movieId]);
+
+    if (isLoading){
+        return (
+            <div>
+                Loading...
+            </div>
+        )
+    }
 
     if (!movie){
         return null;
