@@ -6,8 +6,8 @@ export default function MovieDetails(){
 
     return (
     <div className={styles.detailsContainer}>
-        <img src={imageUrl} alt={movie.title}/>
-        <div>
+        <img className={`${styles.col} ${styles.movieImage}`} src={imageUrl} alt={movie.title}/>
+        <div className={`${styles.col} ${styles.movieDetails}`} >
             <p> <strong> 
                 Title:</strong> {movie.title}
             </p>
