@@ -1,7 +1,11 @@
 import movie from './movie.json'
 import styles from './MoviesDetails.module.css'
+import { useParams } from 'react-router';
 
 export default function MovieDetails(){
+
+    const{movieId}= useParams();
+
     const imageUrl= "https://image.tmdb.org/t/p/w400" + movie.poster_path;
 
     return (
