@@ -1,4 +1,5 @@
 import styles from './moviesCard.module.css'
+import { Link } from 'react-router-dom';
 export default function MoviesCard ({movie}){
     
     //para obtener la ruta a la imagen
@@ -6,6 +7,8 @@ export default function MoviesCard ({movie}){
 
     return(
         <li className={styles.movieCard}>
+            <Link to={"/movies/" + movie.id} >
+
             <img
             src={imageUrl}
             className={styles.movieImage}
@@ -15,6 +18,7 @@ export default function MoviesCard ({movie}){
             <div>
                 {movie.title}
             </div>
+            </Link>
       </li>
     )
 }
