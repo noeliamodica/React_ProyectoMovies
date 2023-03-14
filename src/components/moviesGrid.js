@@ -3,11 +3,11 @@ import MoviesCard from './moviesCard';
 import { useEffect, useState } from 'react';
 import { get } from '../utils/httpClient';
 import { useLocation } from 'react-router';
+import { useSearchParams } from 'react-router-dom';
 
 
-function useQuery (){
-    return new URLSearchParams(useLocation().search);
-}
+const [query, setQuery] = useSearchParams();
+
 
 export default function MoviesGrid (){
 
